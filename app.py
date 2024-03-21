@@ -2,9 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///DATAAA.db"
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.secret_key = 'your_secret_key'  # Set a secret key for flashing messages
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///DATAAAA.db"
+
+app.secret_key = 'my@1233'  # Set a secret key for flashing messages
 db = SQLAlchemy(app)
 
 
@@ -28,7 +28,7 @@ class Contact(db.Model):
 
 #--------------------------------------------------------------------- contacts -------------------------------------------------------------------
 
-@app.route('/contact', methods=['POST'])
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
         name = request.form['name']
@@ -83,7 +83,7 @@ def admin_login():
     else:
         return render_template('adminlogin.html')
      
-@app.route('/signup', methods=['POST'])
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
     username = request.form['txt']
     email = request.form['email']
@@ -168,6 +168,18 @@ def ob():
 @app.route('/py')
 def py():
     return render_template('ddd/PyRx.html')
+@app.route('/osi')
+def osi():
+    return render_template('ddd/osi.html')
+@app.route('/moli')
+def moli():
+    return render_template('ddd/moli.html')
+@app.route('/sp1')
+def sp1():
+    return render_template('ddd/sp1.html')
+@app.route('/swp')
+def swp():
+    return render_template('ddd/swp.html')
 
 #-----------------------------------------------------------------------------------CTDA--------------------------------------------------------------
 @app.route('/ctda')
@@ -245,6 +257,9 @@ def pw():
 @app.route('/sc')
 def sc():
     return render_template('pp/sc.html')
+@app.route('/pass1')
+def pass1():
+    return render_template('pp/pass.html')
 
 #----------------------------------------------------------------  DMML ------------------------------------------------------------------------
 
